@@ -3,7 +3,7 @@ package com.salvatore.cinemates.model;
 import java.util.Date;
 
 public class User {
-	private long userId;
+	private Long userId;
 	private String email;
 	private String username;
 	private String name;
@@ -13,11 +13,11 @@ public class User {
 	private String nationality;
 	private String preferredLanguage;
 
-	public long getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(long userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 

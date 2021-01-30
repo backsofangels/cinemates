@@ -1,18 +1,34 @@
 package com.salvatore.cinemates.model;
 
+import java.util.Comparator;
+
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Person {
+	@JsonAlias("id")
 	private int personId;
 	private String name;
 	private int gender;
-	private String alsoKnownAs;
+	@JsonAlias("birthday")
 	private String birthDay;
+	@JsonAlias("deathday")
 	private String deathDay;
 	private String biography;
+	@JsonAlias("place_of_birth")
 	private String placeOfBirth;
+	@JsonAlias("profile_path")
 	private String profilePicturePath;
 	private boolean adult;
 	private String homepage;
 	private double popularity;
+	@JsonAlias("known_for_department")
+	private String knownForDepartment;
+	
+	private String job;
 	
 	public int getPersonId() {
 		return personId;
@@ -37,14 +53,7 @@ public class Person {
 	public void setGender(int gender) {
 		this.gender = gender;
 	}
-	
-	public String getAlsoKnownAs() {
-		return alsoKnownAs;
-	}
-	
-	public void setAlsoKnownAs(String alsoKnownAs) {
-		this.alsoKnownAs = alsoKnownAs;
-	}
+
 	
 	public String getBirthDay() {
 		return birthDay;
@@ -108,5 +117,36 @@ public class Person {
 	
 	public void setPopularity(double popularity) {
 		this.popularity = popularity;
+	}
+
+	public String getKnownForDepartment() {
+		return knownForDepartment;
+	}
+
+	public void setKnownForDepartment(String knownForDepartment) {
+		this.knownForDepartment = knownForDepartment;
+	}
+
+	public String getJob() {
+		return job;
+	}
+
+	public void setJob(String job) {
+		this.job = job;
+	}
+
+	@Override
+	public String toString() {
+		return "Person [personId=" + personId + ", name=" + name + ", gender=" + gender + ", birthDay=" + birthDay
+				+ ", deathDay=" + deathDay + ", biography=" + biography + ", placeOfBirth=" + placeOfBirth
+				+ ", profilePicturePath=" + profilePicturePath + ", adult=" + adult + ", homepage=" + homepage
+				+ ", popularity=" + popularity + ", knownForDepartment=" + knownForDepartment + ", job=" + job + "]";
+	}
+	
+	public static class PopularityComparator implements Comparator<Person> {
+		@Override
+		public int compare (Person firstPerson, Person secondPerson) {
+			return Double.compare(firstPerson.getPopularity(), secondPerson.getPopularity());
+		}
 	}
 }

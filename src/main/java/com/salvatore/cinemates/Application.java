@@ -8,15 +8,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+//TODO DEBUG: remove exclusion when implementing auth
 @SpringBootApplication
 public class Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
-
 	}
 	
-	@Bean //TODO Debug-only method
+	@Bean //TODO Debug-only method, remove 
 	public CommandLineRunner cmdLineRunner(ApplicationContext context) {
 		return args -> {
 			System.out.println("Inspecting beans...");
