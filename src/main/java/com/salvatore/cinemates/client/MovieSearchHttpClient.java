@@ -1,9 +1,9 @@
 package com.salvatore.cinemates.client;
 
 import java.util.Hashtable;
-import java.util.Map;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +12,9 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import com.salvatore.cinemates.utils.HttpLoggingInterceptor;
+import com.salvatore.cinemates.utils.NetworkUtils;
+import com.salvatore.cinemates.utils.TmdbRequestLocale;
 
-import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -24,6 +25,7 @@ public class MovieSearchHttpClient {
 	private Environment env;
 	@Autowired
 	private OkHttpClient client;
+	
 	private Logger logger = LoggerFactory.getLogger(MovieSearchHttpClient.class);
 	
 	@Bean
@@ -38,21 +40,19 @@ public class MovieSearchHttpClient {
 	
 	public String searchByTitle(String movieTitle) {
 		logger.info("BEGIN METHOD searchByTitle");
-		HttpUrl url = HttpUrl.parse(env.getProperty("tmdb.baseUrl") + env.getProperty("tmdb.search.movie")).newBuilder()
-				.addEncodedQueryParameter("query", movieTitle)
-				.addEncodedQueryParameter("language", "it-IT")
-				.build();
-		Request request = new Request.Builder()
-				.addHeader("Authorization", "Bearer " + env.getProperty("tmdb.apiToken"))
-				.url(url)
-				.build();
+		Hashtable<String, String> params = new Hashtable<>();
+		params.put("query", movieTitle);
+		params.put("language", "it-IT");
+		Hashtable<String, String> headers = new Hashtable<>();
+		headers.put("Authorization", "Bearer " + env.getProperty("tmdb.apiToken"));
+		Request request = NetworkUtils.createRequest(env.getProperty("tmdb.baseUrl"), env.getProperty("tmdb.search.movie"), params, headers);
 		Response response = null;
 		try {
 			response = client.newCall(request).execute();
 			String resp = response.body().string();
-			logger.error(resp);
 			return resp;
 		} catch (Exception e) {
+			logger.error(ExceptionUtils.getStackTrace(e));
 			return null;
 		} finally {
 			if(response != null) {
@@ -62,20 +62,20 @@ public class MovieSearchHttpClient {
 		}
 	}
 	
-	public String searchPerson(String personName) {
-		logger.info("BEGIN METHOD searchPerson");
+	public String retrieveCastDetailsForMovie(int movieId) {
+		logger.info("BEGIN METHOD retrieveCastDetailsForMovie");
 		Hashtable<String, String> params = new Hashtable<>();
-		params.put("query", personName);
-		params.put("language", "it-IT");
-		HttpUrl requestUrl = httpUrlCreator(env.getProperty("tmdb.baseUrl"), env.getProperty("tmdb.search.person"), params);
-		Request request = new Request.Builder().addHeader("Authorization", "Bearer " + env.getProperty("tmdb.apiToken"))
-				.url(requestUrl).build();
+		params.put("language", TmdbRequestLocale.IT_VALUE);
+		Hashtable<String, String> headers = new Hashtable<>();
+		headers.put("Authorization", "Bearer " + env.getProperty("tmdb.apiToken"));
+		Request request = NetworkUtils.createRequest(env.getProperty("tmdb.baseUrl"), String.format(env.getProperty("tmdb.movie.castDetails"), movieId), params, headers);
 		Response response = null;
 		
 		try {
 			response = client.newCall(request).execute();
 			return response.body().string();
 		} catch (Exception e) {
+			logger.error(ExceptionUtils.getStackTrace(e));
 			return null;
 		} finally {
 			if (response != null) {
@@ -85,17 +85,44 @@ public class MovieSearchHttpClient {
 		}
 	}
 	
+	public String searchPerson(String personName) {
+		logger.info("BEGIN METHOD searchPerson");
+		Hashtable<String, String> params = new Hashtable<>();
+		params.put("query", personName);
+		params.put("language", TmdbRequestLocale.IT_VALUE);
+		Hashtable<String, String> headers = new Hashtable<>();
+		headers.put("Authorization", "Bearer " + env.getProperty("tmdb.apiToken"));
+		Request request = NetworkUtils.createRequest(env.getProperty("tmdb.baseUrl"), env.getProperty("tmdb.search.movie"), params, headers);
+		Response response = null;
+		
+		try {
+			response = client.newCall(request).execute();
+			return response.body().string();
+		} catch (Exception e) {
+			logger.error(ExceptionUtils.getStackTrace(e));
+			return null;
+		} finally {
+			if (response != null) {
+				response.close();
+			}
+			logger.info("END METHOD searchPerson");
+		}
+	}
+	
+	@SuppressWarnings("resource")
 	public String searchPersonDetails(int personId) {
 		logger.info("BEGIN METHOD searchPersonDetails");
 		Hashtable<String, String> params = new Hashtable<>();
 		params.put("language", "it-IT");
-		HttpUrl requestUrl = httpUrlCreator(env.getProperty("tmdb.baseurl"), String.format(env.getProperty("tmdb.person.details"), personId), params);
-		Request request = requestCreator(requestUrl);
+		Hashtable<String, String> headers = new Hashtable<>();
+		headers.put("Authorization", "Bearer " + env.getProperty("tmdb.apiToken"));
+		Request request = NetworkUtils.createRequest(env.getProperty("tmdb.baseUrl"), String.format(env.getProperty("tmdb.person.details"), personId), params, headers);
 		Response response = null;
 		try {
 			response = client.newCall(request).execute();
 			return response.body().string();
 		} catch(Exception e) {
+			logger.error(ExceptionUtils.getStackTrace(e));
 			return null;
 		} finally {
 			if (response != null) {
@@ -105,16 +132,48 @@ public class MovieSearchHttpClient {
 		}
 	}
 	
-	private HttpUrl httpUrlCreator (String baseUrl, String pathComponent, Map<String, String> params) {
-		HttpUrl.Builder urlBuilder = HttpUrl.parse(baseUrl + pathComponent).newBuilder();
-		for (Map.Entry<String, String> paramsCouple: params.entrySet()) {
-			urlBuilder.addEncodedQueryParameter(paramsCouple.getKey(), paramsCouple.getValue());
-		}
-		return urlBuilder.build();
+	public String retrieveMovieDetails(int movieId) {
+		logger.info("BEGIN METHOD retrieveMovieDetails");
+		Hashtable<String, String> params = new Hashtable<>();
+		params.put("language", TmdbRequestLocale.IT_VALUE);
+		Hashtable<String, String> headers = new Hashtable<>();
+		headers.put("Authorization", "Bearer " + env.getProperty("tmdb.apiToken"));
+		Request request = NetworkUtils.createRequest(env.getProperty("tmdb.baseUrl"), String.format(env.getProperty("tmdb.movie.details"), movieId), params, headers);
+		Response response = null;
+		
+		try {
+			response = client.newCall(request).execute();
+			return response.body().string();
+		} catch (Exception e) {
+			logger.error(ExceptionUtils.getStackTrace(e));
+			return null;
+		} finally {
+			if (response != null) {
+				response.close();
+			}
+			logger.info("END METHOD retrieveMovieDetails");
+		}	
 	}
 	
-	private Request requestCreator(HttpUrl url) {
-		return new Request.Builder().addHeader("Authorization", "Bearer " + env.getProperty("tmdb.apiToken"))
-				.url(url).build();
+	public String getKeywordsForMovieId(int id) {
+		logger.info("BEGIN METHOD getKeywordsForMovieId");
+		Hashtable<String, String> emptyParams = new Hashtable<>();
+		Hashtable<String, String> headers = new Hashtable<>();
+		headers.put("Authorization", "Bearer " + env.getProperty("tmdb.apiToken"));
+		Request request = NetworkUtils.createRequest(env.getProperty("tmdb.baseUrl"), String.format(env.getProperty("tmdb.movie.keywords"), id), emptyParams, headers);
+		Response response = null;
+		
+		try {
+			response = client.newCall(request).execute();
+			return response.body().string();
+		} catch (Exception e) {
+			logger.error(ExceptionUtils.getStackTrace(e));
+			return null;
+		} finally {
+			if (response != null) {
+				response.close();
+			}
+			logger.info("END METHOD getKeywordsForMovieId");
+		}
 	}
 }

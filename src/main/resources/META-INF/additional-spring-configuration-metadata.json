@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "tmdb.apiKey",
+  "type": "java.lang.String",
+  "description": "Api key used in requests to TMDB used as parameter in query"
+}]}
