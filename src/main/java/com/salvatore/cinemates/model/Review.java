@@ -5,7 +5,7 @@ public class Review {
 	private int rating;
 	private String description;
 	private int tmdbMovieId;
-	private User user;
+	private CinematesUser cinematesUser;
 
 	public long getReviewId() {
 		return reviewId;
@@ -39,12 +39,12 @@ public class Review {
 		this.tmdbMovieId = tmdbMovieId;
 	}
 
-	public User getUser() {
-		return user;
+	public CinematesUser getUser() {
+		return cinematesUser;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(CinematesUser cinematesUser) {
+		this.cinematesUser = cinematesUser;
 	}
 
 }

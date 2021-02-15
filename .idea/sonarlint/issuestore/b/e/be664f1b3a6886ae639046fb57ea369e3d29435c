@@ -1,0 +1,37 @@
+
+h
+java:S11920"MDefine a constant instead of duplicating this literal "tmdb.baseUrl" 6 times.(³êÒúüÿÿÿÿ
+_
+java:S1192-"IDefine a constant instead of duplicating this literal "language" 5 times.(ãÝÖÉ
+^
+java:S1192/"HDefine a constant instead of duplicating this literal "Bearer " 6 times.(ÒÆ—„
+d
+java:S1192/"NDefine a constant instead of duplicating this literal "Authorization" 6 times.(ÒÆ—„
+d
+java:S1192/"NDefine a constant instead of duplicating this literal "tmdb.apiToken" 6 times.(ÒÆ—„
+r
+java:S14884"\Immediately return this expression instead of assigning it to the temporary variable "resp".(ðÉ¼«
+l
+java:S1149+"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(Å¥üÿ
+l
+java:S1149."VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(ð¾¡Æ
+l
+java:S1149C"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(Å¥üÿ
+l
+java:S1149E"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(ð¾¡Æ
+l
+java:S1149Z"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(Å¥üÿ
+l
+java:S1149]"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(ð¾¡Æ
+l
+java:S1149s"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(Å¥üÿ
+l
+java:S1149u"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(ð¾¡Æ
+m
+java:S1149‰"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(Å¥üÿ
+m
+java:S1149‹"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(ð¾¡Æ
+l
+java:S1149 "VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(ƒ¥õ
+m
+java:S1149¡"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(ð¾¡Æ
