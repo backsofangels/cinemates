@@ -1,11 +1,21 @@
 package com.salvatore.cinemates.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Date;
 
-public class User {
+@Entity
+public class CinematesUser {
+	@Id
+	@GeneratedValue
 	private Long userId;
 	private String email;
 	private String username;
+	private String password;
 	private String name;
 	private String surname;
 	private String profilePicturePath;
@@ -31,6 +41,16 @@ public class User {
 
 	public String getUsername() {
 		return username;
+	}
+
+	@JsonIgnore
+	public String getPassword() {
+		return password;
+	}
+
+	@JsonProperty
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public void setUsername(String username) {
