@@ -23,3 +23,11 @@ s
 Csrc/main/java/com/salvatore/cinemates/dto/CinematesUserAuthDto.java,3\b\3baae71576de2dc0a31dd7f4e9911108dd50d1a4
 
 Osrc/main/java/com/salvatore/cinemates/filters/JwtAuthenticationTokenFilter.java,2\0\2014060d1c4a9b89ffb8ac660cec7252a2862dd3
+f
+6src/main/java/com/salvatore/cinemates/Application.java,e\2\e224d2f7b4d7bf681e1f83a5e778909c80e5f805
+
+Osrc/main/java/com/salvatore/cinemates/utils/MovieSearchHttpClientConstants.java,6\0\6030e22b2fa05cfcd519142ced374a770e5d6065
+
+Osrc/main/java/com/salvatore/cinemates/utils/ApplicationPropertiesConstants.java,4\d\4da4082f4a447c866a2e9c52529cabcac809a9f6
+u
+Esrc/main/java/com/salvatore/cinemates/dto/CinematesUserSignupDto.java,d\3\d38560a3a05ee140d38f74410e23ed826c4fa7d6

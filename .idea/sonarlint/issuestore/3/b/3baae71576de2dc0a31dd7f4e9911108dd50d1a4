@@ -1,5 +1,5 @@
 
-|
-java:S4165!"fRemove this useless assignment; "password" already holds the assigned value along all execution paths.(÷ã´½
 
 java:S4165"fRemove this useless assignment; "username" already holds the assigned value along all execution paths.(ğ„ªıÿÿÿÿ
+|
+java:S4165!"fRemove this useless assignment; "password" already holds the assigned value along all execution paths.(÷ã´½
