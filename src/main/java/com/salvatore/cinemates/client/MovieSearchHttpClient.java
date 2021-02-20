@@ -1,7 +1,9 @@
 package com.salvatore.cinemates.client;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 
+import com.salvatore.cinemates.model.Movie;
+import com.salvatore.cinemates.utils.ApplicationPropertiesConstants;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
@@ -13,7 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.salvatore.cinemates.utils.HttpLoggingInterceptor;
 import com.salvatore.cinemates.utils.NetworkUtils;
-import com.salvatore.cinemates.utils.TmdbRequestLocale;
+import com.salvatore.cinemates.utils.MovieSearchHttpClientConstants;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -26,7 +28,7 @@ public class MovieSearchHttpClient {
 	@Autowired
 	private OkHttpClient client;
 	
-	private Logger logger = LoggerFactory.getLogger(MovieSearchHttpClient.class);
+	private final Logger logger = LoggerFactory.getLogger(MovieSearchHttpClient.class);
 	
 	@Bean
 	public HttpLoggingInterceptor createLoggingInterceptor() {
@@ -40,17 +42,20 @@ public class MovieSearchHttpClient {
 	
 	public String searchByTitle(String movieTitle) {
 		logger.info("BEGIN METHOD searchByTitle");
-		Hashtable<String, String> params = new Hashtable<>();
-		params.put("query", movieTitle);
-		params.put("language", "it-IT");
-		Hashtable<String, String> headers = new Hashtable<>();
-		headers.put("Authorization", "Bearer " + env.getProperty("tmdb.apiToken"));
-		Request request = NetworkUtils.createRequest(env.getProperty("tmdb.baseUrl"), env.getProperty("tmdb.search.movie"), params, headers);
+		HashMap<String, String> params = new HashMap<>();
+		params.put(MovieSearchHttpClientConstants.HTTPCLIENT_REQUEST_QUERY_FIELD, movieTitle);
+		params.put(MovieSearchHttpClientConstants.HTTPCLIENT_REQUEST_LANGUAGE_FIELD,
+				MovieSearchHttpClientConstants.HTTPCLIENT_REQUEST_LANGUAGE_FIELD_VALUE_ITALIAN);
+		HashMap<String, String> headers = new HashMap<>();
+		headers.put(MovieSearchHttpClientConstants.HTTPCLIENT_HEADERS_AUTHORIZATION,
+				MovieSearchHttpClientConstants.HTTPCLIENT_HEADERS_AUTHORIZATION_BEARER +
+						env.getProperty(ApplicationPropertiesConstants.TMDB_API_TOKEN));
+		Request request = NetworkUtils.createRequest(env.getProperty(ApplicationPropertiesConstants.TMDB_URI_BASEURL),
+				env.getProperty(ApplicationPropertiesConstants.TMDB_URI_SEARCH_MOVIE_URL), params, headers);
 		Response response = null;
 		try {
 			response = client.newCall(request).execute();
-			String resp = response.body().string();
-			return resp;
+			return response.body().string();
 		} catch (Exception e) {
 			logger.error(ExceptionUtils.getStackTrace(e));
 			return null;
@@ -64,11 +69,13 @@ public class MovieSearchHttpClient {
 	
 	public String retrieveCastDetailsForMovie(int movieId) {
 		logger.info("BEGIN METHOD retrieveCastDetailsForMovie");
-		Hashtable<String, String> params = new Hashtable<>();
-		params.put("language", TmdbRequestLocale.IT_VALUE);
-		Hashtable<String, String> headers = new Hashtable<>();
-		headers.put("Authorization", "Bearer " + env.getProperty("tmdb.apiToken"));
-		Request request = NetworkUtils.createRequest(env.getProperty("tmdb.baseUrl"), String.format(env.getProperty("tmdb.movie.castDetails"), movieId), params, headers);
+		HashMap<String, String> params = new HashMap<>();
+		params.put(MovieSearchHttpClientConstants.HTTPCLIENT_REQUEST_LANGUAGE_FIELD,
+				MovieSearchHttpClientConstants.HTTPCLIENT_REQUEST_LANGUAGE_FIELD_VALUE_ITALIAN);
+		HashMap<String, String> headers = new HashMap<>();
+		headers.put(MovieSearchHttpClientConstants.HTTPCLIENT_HEADERS_AUTHORIZATION, MovieSearchHttpClientConstants.HTTPCLIENT_HEADERS_AUTHORIZATION_BEARER + env.getProperty("tmdb.apiToken"));
+		Request request = NetworkUtils.createRequest(env.getProperty(ApplicationPropertiesConstants.TMDB_URI_BASEURL),
+				String.format(env.getProperty(ApplicationPropertiesConstants.TMDB_URI_CAST_DETAILS_URL), movieId), params, headers);
 		Response response = null;
 		
 		try {
@@ -87,12 +94,16 @@ public class MovieSearchHttpClient {
 	
 	public String searchPerson(String personName) {
 		logger.info("BEGIN METHOD searchPerson");
-		Hashtable<String, String> params = new Hashtable<>();
-		params.put("query", personName);
-		params.put("language", TmdbRequestLocale.IT_VALUE);
-		Hashtable<String, String> headers = new Hashtable<>();
-		headers.put("Authorization", "Bearer " + env.getProperty("tmdb.apiToken"));
-		Request request = NetworkUtils.createRequest(env.getProperty("tmdb.baseUrl"), env.getProperty("tmdb.search.movie"), params, headers);
+		HashMap<String, String> params = new HashMap<>();
+		params.put(MovieSearchHttpClientConstants.HTTPCLIENT_REQUEST_QUERY_FIELD, personName);
+		params.put(MovieSearchHttpClientConstants.HTTPCLIENT_REQUEST_LANGUAGE_FIELD,
+				MovieSearchHttpClientConstants.HTTPCLIENT_REQUEST_LANGUAGE_FIELD_VALUE_ITALIAN);
+		HashMap<String, String> headers = new HashMap<>();
+		headers.put(MovieSearchHttpClientConstants.HTTPCLIENT_HEADERS_AUTHORIZATION,
+				MovieSearchHttpClientConstants.HTTPCLIENT_HEADERS_AUTHORIZATION_BEARER +
+						env.getProperty(ApplicationPropertiesConstants.TMDB_API_TOKEN));
+		Request request = NetworkUtils.createRequest(env.getProperty(ApplicationPropertiesConstants.TMDB_URI_BASEURL),
+				env.getProperty(ApplicationPropertiesConstants.TMBD_URI_SEARCH_PERSON_URL), params, headers);
 		Response response = null;
 		
 		try {
@@ -112,11 +123,15 @@ public class MovieSearchHttpClient {
 	@SuppressWarnings("resource")
 	public String searchPersonDetails(int personId) {
 		logger.info("BEGIN METHOD searchPersonDetails");
-		Hashtable<String, String> params = new Hashtable<>();
-		params.put("language", "it-IT");
-		Hashtable<String, String> headers = new Hashtable<>();
-		headers.put("Authorization", "Bearer " + env.getProperty("tmdb.apiToken"));
-		Request request = NetworkUtils.createRequest(env.getProperty("tmdb.baseUrl"), String.format(env.getProperty("tmdb.person.details"), personId), params, headers);
+		HashMap<String, String> params = new HashMap<>();
+		params.put(MovieSearchHttpClientConstants.HTTPCLIENT_REQUEST_LANGUAGE_FIELD,
+				MovieSearchHttpClientConstants.HTTPCLIENT_REQUEST_LANGUAGE_FIELD_VALUE_ITALIAN);
+		HashMap<String, String> headers = new HashMap<>();
+		headers.put(MovieSearchHttpClientConstants.HTTPCLIENT_HEADERS_AUTHORIZATION,
+				MovieSearchHttpClientConstants.HTTPCLIENT_HEADERS_AUTHORIZATION_BEARER +
+						env.getProperty(ApplicationPropertiesConstants.TMDB_API_TOKEN));
+		Request request = NetworkUtils.createRequest(env.getProperty(ApplicationPropertiesConstants.TMDB_URI_BASEURL),
+				String.format(env.getProperty(ApplicationPropertiesConstants.TMDB_URI_PERSON_DETAILS_URL), personId), params, headers);
 		Response response = null;
 		try {
 			response = client.newCall(request).execute();
@@ -134,11 +149,15 @@ public class MovieSearchHttpClient {
 	
 	public String retrieveMovieDetails(int movieId) {
 		logger.info("BEGIN METHOD retrieveMovieDetails");
-		Hashtable<String, String> params = new Hashtable<>();
-		params.put("language", TmdbRequestLocale.IT_VALUE);
-		Hashtable<String, String> headers = new Hashtable<>();
-		headers.put("Authorization", "Bearer " + env.getProperty("tmdb.apiToken"));
-		Request request = NetworkUtils.createRequest(env.getProperty("tmdb.baseUrl"), String.format(env.getProperty("tmdb.movie.details"), movieId), params, headers);
+		HashMap<String, String> params = new HashMap<>();
+		params.put(MovieSearchHttpClientConstants.HTTPCLIENT_REQUEST_LANGUAGE_FIELD,
+				MovieSearchHttpClientConstants.HTTPCLIENT_REQUEST_LANGUAGE_FIELD_VALUE_ITALIAN);
+		HashMap<String, String> headers = new HashMap<>();
+		headers.put(MovieSearchHttpClientConstants.HTTPCLIENT_HEADERS_AUTHORIZATION,
+				MovieSearchHttpClientConstants.HTTPCLIENT_HEADERS_AUTHORIZATION_BEARER +
+						env.getProperty(ApplicationPropertiesConstants.TMDB_API_TOKEN));
+		Request request = NetworkUtils.createRequest(env.getProperty(ApplicationPropertiesConstants.TMDB_URI_BASEURL),
+				String.format(env.getProperty(ApplicationPropertiesConstants.TMDB_URI_MOVIE_DETAILS_URL), movieId), params, headers);
 		Response response = null;
 		
 		try {
@@ -157,10 +176,13 @@ public class MovieSearchHttpClient {
 	
 	public String getKeywordsForMovieId(int id) {
 		logger.info("BEGIN METHOD getKeywordsForMovieId");
-		Hashtable<String, String> emptyParams = new Hashtable<>();
-		Hashtable<String, String> headers = new Hashtable<>();
-		headers.put("Authorization", "Bearer " + env.getProperty("tmdb.apiToken"));
-		Request request = NetworkUtils.createRequest(env.getProperty("tmdb.baseUrl"), String.format(env.getProperty("tmdb.movie.keywords"), id), emptyParams, headers);
+		HashMap<String, String> emptyParams = new HashMap<>();
+		HashMap<String, String> headers = new HashMap<>();
+		headers.put(MovieSearchHttpClientConstants.HTTPCLIENT_HEADERS_AUTHORIZATION,
+				MovieSearchHttpClientConstants.HTTPCLIENT_HEADERS_AUTHORIZATION_BEARER +
+						env.getProperty(ApplicationPropertiesConstants.TMDB_API_TOKEN));
+		Request request = NetworkUtils.createRequest(env.getProperty(ApplicationPropertiesConstants.TMDB_URI_BASEURL),
+				String.format(env.getProperty(ApplicationPropertiesConstants.TMDB_URI_MOVIE_KEYWORD_URL), id), emptyParams, headers);
 		Response response = null;
 		
 		try {
