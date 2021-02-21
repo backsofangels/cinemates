@@ -1,6 +1,13 @@
 package com.salvatore.cinemates.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Review {
+	@Id
+	@GeneratedValue
 	private long reviewId;
 	private int rating;
 	private String description;

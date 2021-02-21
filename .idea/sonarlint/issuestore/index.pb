@@ -31,3 +31,13 @@ Osrc/main/java/com/salvatore/cinemates/utils/MovieSearchHttpClientConstants.java
 Osrc/main/java/com/salvatore/cinemates/utils/ApplicationPropertiesConstants.java,4\d\4da4082f4a447c866a2e9c52529cabcac809a9f6
 u
 Esrc/main/java/com/salvatore/cinemates/dto/CinematesUserSignupDto.java,d\3\d38560a3a05ee140d38f74410e23ed826c4fa7d6
+g
+7src/main/java/com/salvatore/cinemates/model/Person.java,b\5\b57468ad43fcb439d96cd974b0c4a5553a95a6d7
+g
+7src/main/java/com/salvatore/cinemates/model/Review.java,0\9\09368b336d9dfc54a1c424ac72f457b5d165425e
+h
+8src/main/java/com/salvatore/cinemates/dto/ReviewDto.java,b\e\bea5fd32eeac8dc09194299f794167daf4dcd7f7
+o
+?src/main/java/com/salvatore/cinemates/dao/ReviewRepository.java,8\a\8a54dad731884c9027764aa1a7e613e4cc9b7011
+v
+Fsrc/main/java/com/salvatore/cinemates/controller/ReviewController.java,3\c\3cdadc43e6f2711aacd06ea5d4e4ce42713bedbd
