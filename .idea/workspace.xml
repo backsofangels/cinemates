@@ -5,21 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d673610-3bbc-412c-99a6-7c0b875a37da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/dto/CinematesUserSignupDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/utils/ApplicationPropertiesConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/utils/MovieSearchHttpClientConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/0/2014060d1c4a9b89ffb8ac660cec7252a2862dd3" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/0/2014060d1c4a9b89ffb8ac660cec7252a2862dd3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/b/3baae71576de2dc0a31dd7f4e9911108dd50d1a4" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/b/3baae71576de2dc0a31dd7f4e9911108dd50d1a4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/9/895139b76178a4460d02967021a836617d7db127" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/9/895139b76178a4460d02967021a836617d7db127" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/e/8ef0e1cd13f9e64a053f75e746cd3573ad0e9f7c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/e/8ef0e1cd13f9e64a053f75e746cd3573ad0e9f7c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/controller/ReviewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/dao/ReviewRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/dto/ReviewDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/services/ReviewService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/9/b94927ad60bed0ddb2105d78d79e5ff36a55b7b9" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/9/b94927ad60bed0ddb2105d78d79e5ff36a55b7b9" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/e/be664f1b3a6886ae639046fb57ea369e3d29435c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/e/be664f1b3a6886ae639046fb57ea369e3d29435c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/client/MovieSearchHttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/client/MovieSearchHttpClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/utils/TmdbRequestLocale.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sonar/report-task.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/sonar/report-task.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/model/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/model/Review.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +56,7 @@
     <property name="SONARLINT_ISSUES_SPLIT_PROPORTION" value="0.47814208" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Maven.sonarqube-scan">
+  <component name="RunManager" selected="Maven.run">
     <configuration name="clean" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
