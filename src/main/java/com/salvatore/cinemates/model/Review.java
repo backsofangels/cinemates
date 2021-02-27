@@ -1,10 +1,19 @@
 package com.salvatore.cinemates.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Review {
+	@Id
+	@GeneratedValue
 	private long reviewId;
 	private int rating;
 	private String description;
 	private int tmdbMovieId;
+	@OneToOne
 	private CinematesUser cinematesUser;
 
 	public long getReviewId() {

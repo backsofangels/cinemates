@@ -5,21 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d673610-3bbc-412c-99a6-7c0b875a37da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/dto/CinematesUserSignupDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/utils/ApplicationPropertiesConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/utils/MovieSearchHttpClientConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/0/2014060d1c4a9b89ffb8ac660cec7252a2862dd3" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/0/2014060d1c4a9b89ffb8ac660cec7252a2862dd3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/b/3baae71576de2dc0a31dd7f4e9911108dd50d1a4" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/b/3baae71576de2dc0a31dd7f4e9911108dd50d1a4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/9/895139b76178a4460d02967021a836617d7db127" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/9/895139b76178a4460d02967021a836617d7db127" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/salvatore/cinemates/AlphaTestingClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/salvatore/cinemates/TestReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3cdadc43e6f2711aacd06ea5d4e4ce42713bedbd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3cdadc43e6f2711aacd06ea5d4e4ce42713bedbd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/e/8ef0e1cd13f9e64a053f75e746cd3573ad0e9f7c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/e/8ef0e1cd13f9e64a053f75e746cd3573ad0e9f7c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/9/b94927ad60bed0ddb2105d78d79e5ff36a55b7b9" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/9/b94927ad60bed0ddb2105d78d79e5ff36a55b7b9" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/e/be664f1b3a6886ae639046fb57ea369e3d29435c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/e/be664f1b3a6886ae639046fb57ea369e3d29435c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/client/MovieSearchHttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/client/MovieSearchHttpClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/utils/TmdbRequestLocale.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sonar/report-task.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/sonar/report-task.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/configuration/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/configuration/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/dao/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/dao/ReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/dto/ReviewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/dto/ReviewDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/model/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/model/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/services/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/services/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +52,6 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -64,6 +62,70 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager" selected="Maven.sonarqube-scan">
+    <configuration name="AlphaTestingClass.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cinemates" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.salvatore.cinemates.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.salvatore.cinemates" />
+      <option name="MAIN_CLASS_NAME" value="com.salvatore.cinemates.AlphaTestingClass" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestReviewService.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cinemates" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.salvatore.cinemates.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.salvatore.cinemates" />
+      <option name="MAIN_CLASS_NAME" value="com.salvatore.cinemates.TestReviewService" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestReviewService.testGetReviewsForMovie" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cinemates" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.salvatore.cinemates.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.salvatore.cinemates" />
+      <option name="MAIN_CLASS_NAME" value="com.salvatore.cinemates.TestReviewService" />
+      <option name="METHOD_NAME" value="testGetReviewsForMovie" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestReviewService.testSaveNewReview" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cinemates" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.salvatore.cinemates.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.salvatore.cinemates" />
+      <option name="MAIN_CLASS_NAME" value="com.salvatore.cinemates.TestReviewService" />
+      <option name="METHOD_NAME" value="testSaveNewReview" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="clean" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -170,11 +232,23 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Maven.run" />
-      <item itemvalue="Maven.sonarqube-scan" />
+      <item itemvalue="JUnit.AlphaTestingClass.contextLoads" />
+      <item itemvalue="JUnit.TestReviewService.test" />
+      <item itemvalue="JUnit.TestReviewService.testSaveNewReview" />
+      <item itemvalue="JUnit.TestReviewService.testGetReviewsForMovie" />
       <item itemvalue="Maven.clean" />
       <item itemvalue="Maven.compile" />
+      <item itemvalue="Maven.run" />
+      <item itemvalue="Maven.sonarqube-scan" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestReviewService.testGetReviewsForMovie" />
+        <item itemvalue="JUnit.TestReviewService.testSaveNewReview" />
+        <item itemvalue="JUnit.TestReviewService.test" />
+        <item itemvalue="JUnit.AlphaTestingClass.contextLoads" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
