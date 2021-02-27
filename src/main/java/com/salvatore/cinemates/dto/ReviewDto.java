@@ -7,6 +7,15 @@ public class ReviewDto {
     private int movieId;
     private String cinematesUserUsername;
 
+    public ReviewDto() {}
+
+    public ReviewDto(int rating, String description, int movieId, String cinematesUserUsername) {
+        this.rating = rating;
+        this.description = description;
+        this.movieId = movieId;
+        this.cinematesUserUsername = cinematesUserUsername;
+    }
+
     public long getId() {
         return id;
     }

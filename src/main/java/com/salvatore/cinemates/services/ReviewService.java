@@ -3,7 +3,9 @@ package com.salvatore.cinemates.services;
 import com.salvatore.cinemates.dao.CinematesUserRepository;
 import com.salvatore.cinemates.dao.ReviewRepository;
 import com.salvatore.cinemates.dto.ReviewDto;
+import com.salvatore.cinemates.model.CinematesUser;
 import com.salvatore.cinemates.model.Review;
+import com.sun.istack.NotNull;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,24 +25,68 @@ public class ReviewService {
 
     private final Logger logger = LoggerFactory.getLogger(ReviewService.class);
 
-    public Boolean saveNewReview(ReviewDto reviewDto) {
+    public Boolean saveNewReview(@NotNull ReviewDto reviewDto) {
         Review review = convertDtoToModel(reviewDto);
         try {
-            review = repository.save(review);
+            repository.save(review);
             return Boolean.TRUE;
         } catch (IllegalArgumentException e) {
             logger.error(ExceptionUtils.getStackTrace(e));
             return Boolean.FALSE;
+        } finally {
+            repository.flush();
         }
     }
 
     public List<ReviewDto> getReviewsForMovie(int movieId) {
-        List<Review> reviews = repository.findReviewByMovieId(movieId);
+        List<Review> reviews = repository.findReviewByTmdbMovieId(movieId);
         List<ReviewDto> reviewDtos = new ArrayList<>();
         for (Review review: reviews) {
             reviewDtos.add(convertModelToDto(review));
         }
         return reviewDtos;
+    }
+
+    public List<ReviewDto> getReviewsForUser(String username) {
+        List<ReviewDto> reviewDtos = new ArrayList<>();
+
+        try {
+            CinematesUser user = userRepository.findByUsername(username);
+            List<Review> reviews = repository.findReviewByCinematesUser(user);
+            for (Review r: reviews) {
+                reviewDtos.add(convertModelToDto(r));
+            }
+        } catch (IllegalArgumentException e) {
+            logger.error(ExceptionUtils.getStackTrace(e));
+        }
+
+        return reviewDtos;
+    }
+
+    public Boolean updateReview(ReviewDto updatedReviewDto) {
+        try {
+            Review updatedReview = convertDtoToModel(updatedReviewDto);
+            repository.save(updatedReview);
+            return Boolean.TRUE;
+        } catch (IllegalArgumentException e) {
+            logger.error(ExceptionUtils.getStackTrace(e));
+            return Boolean.FALSE;
+        } finally {
+            repository.flush();
+        }
+    }
+
+    public Boolean deleteReview (ReviewDto deletedReviewDto) {
+        try {
+            Review deletedReview = convertDtoToModel(deletedReviewDto);
+            repository.delete(deletedReview);
+            return Boolean.TRUE;
+        } catch (IllegalArgumentException e) {
+            logger.error(ExceptionUtils.getStackTrace(e));
+            return Boolean.FALSE;
+        } finally {
+            repository.flush();
+        }
     }
 
     private Review convertDtoToModel(ReviewDto reviewDto) {
