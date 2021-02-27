@@ -47,3 +47,5 @@ l
 <src/test/java/com/salvatore/cinemates/AlphaTestingClass.java,3\c\3c6c5876a72a2cf50be281bdc480b7467bc0d458
 l
 <src/test/java/com/salvatore/cinemates/TestReviewService.java,0\0\009933a7b287240f0062ab926c6222a3ff9fd966
+{
+Ksrc/main/java/com/salvatore/cinemates/controller/MovieSearchController.java,1\2\129dc4f049c6336dedf3c2470521d8db776c7447
