@@ -52,7 +52,7 @@ public class MovieSearchService {
 	
 	public Movie enrichMovieWithCrewDetails(Movie movie) {
 		logger.info("BEGIN METHOD enrichMovieWithCrewDetails");
-		String responseBody = httpClient.retrieveCastDetailsForMovie(movie.getTmbdId());
+		String responseBody = httpClient.retrieveCastDetailsForMovie(movie.getTmdbId());
 		
 		try {
 			TmdbMovieCastDto dto = mapper.readValue(responseBody, TmdbMovieCastDto.class);
@@ -97,7 +97,7 @@ public class MovieSearchService {
 	public List<Keyword> getKeywordsForMovie(Movie m) {
 		logger.info("BEGIN METHOD getKeywordsForMovie");
 		List<Keyword> keywords = new ArrayList<>();
-		String responseBody = httpClient.getKeywordsForMovieId(m.getTmbdId());
+		String responseBody = httpClient.getKeywordsForMovieId(m.getTmdbId());
 		
 		try {
 			TmdbKeywordsDto dto = mapper.readValue(responseBody, TmdbKeywordsDto.class);

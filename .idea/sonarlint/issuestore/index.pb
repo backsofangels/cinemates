@@ -49,3 +49,10 @@ l
 <src/test/java/com/salvatore/cinemates/TestReviewService.java,0\0\009933a7b287240f0062ab926c6222a3ff9fd966
 {
 Ksrc/main/java/com/salvatore/cinemates/controller/MovieSearchController.java,1\2\129dc4f049c6336dedf3c2470521d8db776c7447
+:
+
+Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
+k
+;src/main/java/com/salvatore/cinemates/dto/TmdbMovieDto.java,9\c\9cadcbe5c5537c86326b1e8270c2c1ae37eeacff
+f
+6src/main/java/com/salvatore/cinemates/model/Movie.java,1\1\11bc0d1e62a499b4c9f55fc91c9508f71f060384

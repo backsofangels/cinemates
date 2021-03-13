@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Movie {
 	@JsonAlias("id")
-	private int tmbdId;
+	private int tmdbId;
 	private String title;
 	@JsonAlias("original_language")
 	private String originalLanguage;
@@ -30,12 +30,12 @@ public class Movie {
 	
 	//TODO: releaseDate viene restituito in epoch time, convertirlo in stringa leggibile oppure farlo fare al f-e
 
-	public int getTmbdId() {
-		return tmbdId;
+	public int getTmdbId() {
+		return tmdbId;
 	}
 
-	public void setTmbdId(int tmbdId) {
-		this.tmbdId = tmbdId;
+	public void setTmdbId(int tmdbId) {
+		this.tmdbId = tmdbId;
 	}
 
 	public String getTitle() {
@@ -136,7 +136,7 @@ public class Movie {
 
 	@Override
 	public String toString() {
-		return "Movie [tmbdId=" + tmbdId + ", title=" + title + ", originalLanguage=" + originalLanguage
+		return "Movie [tmdbId=" + tmdbId + ", title=" + title + ", originalLanguage=" + originalLanguage
 				+ ", originalTitle=" + originalTitle + ", posterImagePath=" + posterImagePath + ", releaseDate="
 				+ releaseDate + ", status=" + status + ", keywords=" + keywords + ", directors=" + directors
 				+ ", actors=" + actors + ", producers=" + producers + "]";
