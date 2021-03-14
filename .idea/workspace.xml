@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d673610-3bbc-412c-99a6-7c0b875a37da" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/e/8ef0e1cd13f9e64a053f75e746cd3573ad0e9f7c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/e/8ef0e1cd13f9e64a053f75e746cd3573ad0e9f7c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/model/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/model/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/services/MovieSearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/services/MovieSearchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/cinemates-0.1.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/cinemates-0.1.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.salvatore.cinemates.TestReviewService.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.salvatore.cinemates.TestReviewService.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.salvatore.cinemates.TestReviewService.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.salvatore.cinemates.TestReviewService.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
