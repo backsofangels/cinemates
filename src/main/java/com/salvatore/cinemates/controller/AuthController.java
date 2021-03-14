@@ -51,6 +51,7 @@ public class AuthController {
         repository.save(user);
     }
 
+    //TODO: creare il token JWT in modo che abbia validità di 10 anni
     @RequestMapping(value = "/auth/login", method = RequestMethod.POST)
     public ResponseEntity<?> login(@RequestBody CinematesUserAuthDto authDto, HttpServletResponse response) throws AuthenticationException, JsonProcessingException {
         final Authentication authentication = authenticationManager.authenticate(
@@ -61,6 +62,8 @@ public class AuthController {
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authDto.getUsername());
         final String token = tokenUtils.generateToken(userDetails.getUsername());
         response.setHeader(JwtConstants.JWT_TOKEN_HEADER, token);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(repository.findByUsername(authDto.getUsername()));
     }
+
+    //TODO: Creare un endpoint di logout che invalidi il token JWT dell'utente server-side
 }
