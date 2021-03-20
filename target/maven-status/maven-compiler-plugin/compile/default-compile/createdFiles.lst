@@ -3,6 +3,7 @@ com\salvatore\cinemates\dto\CinematesUserSignupDto.class
 com\salvatore\cinemates\model\Person$PopularityComparator.class
 com\salvatore\cinemates\dto\ReviewDto.class
 com\salvatore\cinemates\utils\ApplicationPropertiesConstants.class
+com\salvatore\cinemates\model\ErrorResponse.class
 com\salvatore\cinemates\dao\ReviewRepository.class
 com\salvatore\cinemates\model\WatchProvider.class
 com\salvatore\cinemates\controller\ReviewController.class

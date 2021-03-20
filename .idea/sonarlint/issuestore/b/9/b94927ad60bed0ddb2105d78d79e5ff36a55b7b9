@@ -1,16 +1,23 @@
 
-e
-java:S44880"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(©é¡¾ÿÿÿÿÿ
-]
-java:S46841"@Replace this persistent entity with a simple POJO or DTO object.(­Æªş8´»¿áù.
-l
-java:S44886"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ËË¡ìÿÿÿÿÿ8îÈ¸ú.
-š
-java:S11307"}Remove the declaration of thrown exception 'javax.naming.AuthenticationException', as it cannot be thrown from method's body.(¬ó‰Š8îÈ¸ú.
+b
+java:S46844"@Replace this persistent entity with a simple POJO or DTO object.(Àë¸Åüÿÿÿÿ8´»¿áù.
+k
+java:S1128"NRemove this unused import 'java.sql.SQLIntegrityConstraintViolationException'.(¤¡†8š¹ï‹„/
+T
+java:S1135>"2Complete the task associated to this TODO comment.(ÃÛßøÿÿÿÿ8­£ø„/
+c
+java:S1128"ARemove this unused import 'org.hibernate.PropertyValueException'.(¶Â×úÿÿÿÿ8’Æ×‹„/
+H
+java:S14524"&Remove usage of generic wildcard type.(Àë¸Åüÿÿÿÿ8‹×‹„/
 C
-java:S14527"&Remove usage of generic wildcard type.(¬ó‰Š8îÈ¸ú.
+java:S1452@"&Remove usage of generic wildcard type.(¬ó‰Š8­£ø„/
+e
+java:S44883"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(©é¡¾ÿÿÿÿÿ
+š
+java:S1130@"}Remove the declaration of thrown exception 'javax.naming.AuthenticationException', as it cannot be thrown from method's body.(¬ó‰Š8­£ø„/
 ©
-java:S11307"‹Remove the declaration of thrown exception 'com.fasterxml.jackson.core.JsonProcessingException', as it cannot be thrown from method's body.(¬ó‰Š8îÈ¸ú.
-\
-java:S1128
-"?Remove this unused import 'org.aspectj.weaver.patterns.IToken'.(ÌŞÎ8îÈ¸ú.
+java:S1130@"‹Remove the declaration of thrown exception 'com.fasterxml.jackson.core.JsonProcessingException', as it cannot be thrown from method's body.(¬ó‰Š8­£ø„/
+l
+java:S4488?"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ËË¡ìÿÿÿÿÿ8­£ø„/
+T
+java:S1135L"2Complete the task associated to this TODO comment.(åÉÃøúÿÿÿÿ8­£ø„/

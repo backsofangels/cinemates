@@ -1,10 +1,9 @@
 package com.salvatore.cinemates;
 
-import com.salvatore.cinemates.dao.ReviewRepository;
 import com.salvatore.cinemates.dto.ReviewDto;
 import com.salvatore.cinemates.services.ReviewService;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 

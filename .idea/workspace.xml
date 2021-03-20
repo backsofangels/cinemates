@@ -5,8 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d673610-3bbc-412c-99a6-7c0b875a37da" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_21.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/model/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/services/CinematesUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/utils/SaveEntityResultState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application-localmysql.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/cinemates-0.1.1.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/9/b94927ad60bed0ddb2105d78d79e5ff36a55b7b9" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/9/b94927ad60bed0ddb2105d78d79e5ff36a55b7b9" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cinemates.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cinemates.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/dao/CinematesUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/dao/CinematesUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/dto/CinematesUserAuthDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/dto/CinematesUserAuthDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/model/CinematesUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/model/CinematesUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/utils/JwtTokenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/utils/JwtTokenUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/salvatore/cinemates/TestReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/salvatore/cinemates/TestReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +39,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -47,9 +69,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SONARLINT_ISSUES_SPLIT_PROPORTION" value="0.47814208" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Properties" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Maven.docker-build">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Penitente\eclipse-workspace\cinemates\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Maven.run">
     <configuration name="AlphaTestingClass.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cinemates" />
       <extension name="coverage">
@@ -299,12 +327,12 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.AlphaTestingClass.contextLoads" />
-      <item itemvalue="JUnit.TestReviewService.test" />
-      <item itemvalue="JUnit.TestReviewService.testSaveNewReview" />
       <item itemvalue="JUnit.TestReviewService.testGetReviewsForMovie" />
+      <item itemvalue="JUnit.TestReviewService.testSaveNewReview" />
+      <item itemvalue="JUnit.TestReviewService.test" />
+      <item itemvalue="Maven.cinemates [clean,install]" />
       <item itemvalue="Maven.clean" />
       <item itemvalue="Maven.compile" />
-      <item itemvalue="Maven.cinemates [clean,install]" />
       <item itemvalue="Maven.docker-build" />
       <item itemvalue="Maven.run" />
       <item itemvalue="Maven.sonarqube-scan" />

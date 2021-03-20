@@ -3,9 +3,11 @@ package com.salvatore.cinemates.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
 import java.util.Date;
 
 @Entity
@@ -13,14 +15,32 @@ public class CinematesUser {
 	@Id
 	@GeneratedValue
 	private Long userId;
+
+	@Column(name = "email", nullable = false, unique = true)
 	private String email;
+
+	@Column(name = "username", nullable = false, unique = true)
 	private String username;
+
+	@Column(name = "password", nullable = false, unique = false)
 	private String password;
+
+	@Column(name = "name", nullable = false, unique = false)
 	private String name;
+
+	@Column(name = "surname", nullable = true, unique = false)
 	private String surname;
+
+	@Column(name = "profilePicturePath", nullable = true, unique = true)
 	private String profilePicturePath;
+
+	@Column(name = "birthDate", nullable = true, unique = false)
 	private Date birthDate;
+
+	@Column(name = "nationality", nullable = true, unique = false)
 	private String nationality;
+
+	@Column(name = "preferredLanguage", nullable = true, unique = false)
 	private String preferredLanguage;
 
 	public Long getUserId() {

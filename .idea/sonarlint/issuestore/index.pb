@@ -56,3 +56,9 @@ k
 ;src/main/java/com/salvatore/cinemates/dto/TmdbMovieDto.java,9\c\9cadcbe5c5537c86326b1e8270c2c1ae37eeacff
 f
 6src/main/java/com/salvatore/cinemates/model/Movie.java,1\1\11bc0d1e62a499b4c9f55fc91c9508f71f060384
+n
+>src/main/java/com/salvatore/cinemates/model/ErrorResponse.java,6\d\6d76fdf6795dae7d0540dd850c1b31f9620846fa
+x
+Hsrc/main/java/com/salvatore/cinemates/services/CinematesUserService.java,0\7\07ce4228bb3c100263a75d9b9c87d4d42c3ed831
+v
+Fsrc/main/java/com/salvatore/cinemates/utils/SaveEntityResultState.java,1\8\18315e417f8f74c9a1f7d666b434293a37f34dcb

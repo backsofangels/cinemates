@@ -4,12 +4,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.salvatore.cinemates.dao.CinematesUserRepository;
 import com.salvatore.cinemates.dto.CinematesUserAuthDto;
 import com.salvatore.cinemates.model.CinematesUser;
+import com.salvatore.cinemates.model.ErrorResponse;
 import com.salvatore.cinemates.services.UserDetailsServiceImpl;
 import com.salvatore.cinemates.utils.JwtConstants;
 import com.salvatore.cinemates.utils.JwtTokenUtils;
-import org.aspectj.weaver.patterns.IToken;
+
+import org.hibernate.PropertyValueException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.naming.AuthenticationException;
 import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 @RestController
 public class AuthController {
@@ -46,9 +49,14 @@ public class AuthController {
     }
 
     @RequestMapping(value = "/auth/signup", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public void signUp(@RequestBody CinematesUser user) {
+    public ResponseEntity<?> signUp(@RequestBody CinematesUser user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        repository.save(user);
+        try {
+            repository.save(user);
+        } catch (DataIntegrityViolationException dataIntegrityViolationException) {
+            return ResponseEntity.status(409).body(new ErrorResponse(409, "Conflict", "Entity already exists"));
+        }
+        return ResponseEntity.ok().build();
     }
 
     //TODO: creare il token JWT in modo che abbia validità di 10 anni

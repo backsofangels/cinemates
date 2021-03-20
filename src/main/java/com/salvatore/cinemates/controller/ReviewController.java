@@ -1,17 +1,15 @@
 package com.salvatore.cinemates.controller;
 
+import java.util.List;
+
 import com.salvatore.cinemates.dto.ReviewDto;
-import com.salvatore.cinemates.model.Review;
 import com.salvatore.cinemates.services.ReviewService;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 public class ReviewController {
@@ -23,7 +21,8 @@ public class ReviewController {
         boolean saved = reviewService.saveNewReview(review);
         if (saved) {
             return ResponseEntity.ok().build();
-        } else return ResponseEntity.status(500).build();
+        }
+        return ResponseEntity.status(500).build();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/review/getForMovie")
@@ -41,7 +40,8 @@ public class ReviewController {
         boolean updated = reviewService.updateReview(reviewDto);
         if (updated) {
             return ResponseEntity.ok().build();
-        } else return ResponseEntity.status(500).build();
+        }
+        return ResponseEntity.status(500).build();
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/review/deleteReview")
@@ -49,6 +49,7 @@ public class ReviewController {
         boolean deleted = reviewService.deleteReview(reviewDto);
         if (deleted) {
             return ResponseEntity.ok().build();
-        } else return ResponseEntity.status(500).build();
+        }
+        return ResponseEntity.status(500).build();
     }
 }
