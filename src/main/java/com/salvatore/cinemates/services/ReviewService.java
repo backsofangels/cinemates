@@ -1,6 +1,5 @@
 package com.salvatore.cinemates.services;
 
-import com.salvatore.cinemates.dao.CinematesUserRepository;
 import com.salvatore.cinemates.dao.ReviewRepository;
 import com.salvatore.cinemates.dto.ReviewDto;
 import com.salvatore.cinemates.model.CinematesUser;
@@ -14,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReviewService {
@@ -21,21 +21,23 @@ public class ReviewService {
     private ReviewRepository repository;
 
     @Autowired
-    private CinematesUserRepository userRepository;
+    private CinematesUserService service;
 
     private final Logger logger = LoggerFactory.getLogger(ReviewService.class);
+    private final String className = "com.salvatore.cinemates.services.ReviewService ";
 
     public Boolean saveNewReview(@NotNull ReviewDto reviewDto) {
-        Review review = convertDtoToModel(reviewDto);
-        try {
-            repository.save(review);
-            return Boolean.TRUE;
-        } catch (IllegalArgumentException e) {
-            logger.error(ExceptionUtils.getStackTrace(e));
-            return Boolean.FALSE;
-        } finally {
-            repository.flush();
-        }
+
+//        Review review = convertDtoToModel(reviewDto);
+//        try {
+//            repository.save(review);
+//            return Boolean.TRUE;
+//        } catch (IllegalArgumentException e) {
+//            logger.error(ExceptionUtils.getStackTrace(e));
+//            return Boolean.FALSE;
+//        } finally {
+//            repository.flush();
+//        }
     }
 
     public List<ReviewDto> getReviewsForMovie(int movieId) {
@@ -51,10 +53,12 @@ public class ReviewService {
         List<ReviewDto> reviewDtos = new ArrayList<>();
 
         try {
-            CinematesUser user = userRepository.findByUsername(username);
-            List<Review> reviews = repository.findReviewByCinematesUser(user);
-            for (Review r: reviews) {
-                reviewDtos.add(convertModelToDto(r));
+            Optional<CinematesUser> userOptional = userRepository.findByUsername(username);
+            if (userOptional.isPresent()) {
+                List<Review> reviews = repository.findReviewByCinematesUser(userOptional.get());
+                for (Review r: reviews) {
+                    reviewDtos.add(convertModelToDto(r));
+                }
             }
         } catch (IllegalArgumentException e) {
             logger.error(ExceptionUtils.getStackTrace(e));
@@ -90,16 +94,23 @@ public class ReviewService {
     }
 
     private Review convertDtoToModel(ReviewDto reviewDto) {
-        Review review = null;
         if (reviewDto != null) {
-            review = new Review();
-            review.setDescription(reviewDto.getDescription());
-            review.setRating(reviewDto.getRating());
-            review.setTmdbMovieId(reviewDto.getMovieId());
-            review.setUser(userRepository.findByUsername(reviewDto.getCinematesUserUsername()));
-        }
+            logger.info(this.className + "-- convert reviewDto to review");
+            Review review = new Review();
+            logger.info(this.className + "review");
 
-        return review;
+        } else return null;
+//        Review review = null;
+//        if (reviewDto != null) {
+//            Optional<CinematesUser> user = userRepository.findByUsername(reviewDto.getCinematesUserUsername());
+//            if (user.isPresent()) {
+//                review = new Review();
+//                review.setDescription(reviewDto.getDescription());
+//                review.setRating(reviewDto.getRating());
+//                review.setTmdbMovieId(reviewDto.getMovieId());
+//                review.setUser(user.get());
+//            }
+        }
     }
 
     private ReviewDto convertModelToDto(Review review) {

@@ -25,7 +25,7 @@ public class CinematesUser {
 	@Column(name = "password", nullable = false, unique = false)
 	private String password;
 
-	@Column(name = "name", nullable = false, unique = false)
+	@Column(name = "name", nullable = true, unique = false)
 	private String name;
 
 	@Column(name = "surname", nullable = true, unique = false)
@@ -42,6 +42,15 @@ public class CinematesUser {
 
 	@Column(name = "preferredLanguage", nullable = true, unique = false)
 	private String preferredLanguage;
+
+	public CinematesUser() {}
+
+	//Usable only for test purposes
+	public CinematesUser(String email, String username, String password) {
+		this.email = email;
+		this.username = username;
+		this.password = password;
+	}
 
 	public Long getUserId() {
 		return userId;

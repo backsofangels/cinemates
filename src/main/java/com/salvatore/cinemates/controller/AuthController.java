@@ -5,6 +5,7 @@ import com.salvatore.cinemates.dao.CinematesUserRepository;
 import com.salvatore.cinemates.dto.CinematesUserAuthDto;
 import com.salvatore.cinemates.model.CinematesUser;
 import com.salvatore.cinemates.model.ErrorResponse;
+import com.salvatore.cinemates.services.CinematesUserService;
 import com.salvatore.cinemates.services.UserDetailsServiceImpl;
 import com.salvatore.cinemates.utils.JwtConstants;
 import com.salvatore.cinemates.utils.JwtTokenUtils;
@@ -35,6 +36,8 @@ public class AuthController {
     @Autowired
     private CinematesUserRepository repository;
     @Autowired
+    private CinematesUserService service;
+    @Autowired
     private BCryptPasswordEncoder passwordEncoder;
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -51,12 +54,12 @@ public class AuthController {
     @RequestMapping(value = "/auth/signup", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> signUp(@RequestBody CinematesUser user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        try {
-            repository.save(user);
-        } catch (DataIntegrityViolationException dataIntegrityViolationException) {
-            return ResponseEntity.status(409).body(new ErrorResponse(409, "Conflict", "Entity already exists"));
-        }
-        return ResponseEntity.ok().build();
+
+        boolean saveNewUser = service.saveNewUser(user);
+
+        if (saveNewUser) {
+            return ResponseEntity.ok().build();
+        } else return ResponseEntity.status(409).body(new ErrorResponse(409, "Error during registration"));
     }
 
     //TODO: creare il token JWT in modo che abbia validità di 10 anni
@@ -70,7 +73,7 @@ public class AuthController {
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authDto.getUsername());
         final String token = tokenUtils.generateToken(userDetails.getUsername());
         response.setHeader(JwtConstants.JWT_TOKEN_HEADER, token);
-        return ResponseEntity.ok().body(repository.findByUsername(authDto.getUsername()));
+        return ResponseEntity.ok().body(service.findUser(authDto.getUsername(), CinematesUserService.SearchMode.USERNAME));
     }
 
     //TODO: Creare un endpoint di logout che invalidi il token JWT dell'utente server-side
