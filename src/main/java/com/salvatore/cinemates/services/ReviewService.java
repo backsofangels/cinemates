@@ -21,23 +21,26 @@ public class ReviewService {
     private ReviewRepository repository;
 
     @Autowired
-    private CinematesUserService service;
+    private CinematesUserService cinematesUserService;
 
     private final Logger logger = LoggerFactory.getLogger(ReviewService.class);
-    private final String className = "com.salvatore.cinemates.services.ReviewService ";
+    private final String className = "com.salvatore.cinemates.services.ReviewService";
 
     public Boolean saveNewReview(@NotNull ReviewDto reviewDto) {
-
-//        Review review = convertDtoToModel(reviewDto);
-//        try {
-//            repository.save(review);
-//            return Boolean.TRUE;
-//        } catch (IllegalArgumentException e) {
-//            logger.error(ExceptionUtils.getStackTrace(e));
-//            return Boolean.FALSE;
-//        } finally {
-//            repository.flush();
-//        }
+        Review review = convertDtoToModel(reviewDto);
+        try {
+            if (review != null) {
+                repository.save(review);
+                repository.flush();
+                return Boolean.TRUE;
+            } else {
+                logger.error(this.className + "-- review convertita nulla");
+            }
+        } catch (IllegalArgumentException e) {
+            logger.error(ExceptionUtils.getMessage(e));
+            repository.flush();
+        }
+        return Boolean.FALSE;
     }
 
     public List<ReviewDto> getReviewsForMovie(int movieId) {
@@ -53,7 +56,7 @@ public class ReviewService {
         List<ReviewDto> reviewDtos = new ArrayList<>();
 
         try {
-            Optional<CinematesUser> userOptional = userRepository.findByUsername(username);
+            CinematesUser user = userRepository.findByUsername(username);
             if (userOptional.isPresent()) {
                 List<Review> reviews = repository.findReviewByCinematesUser(userOptional.get());
                 for (Review r: reviews) {
@@ -95,34 +98,30 @@ public class ReviewService {
 
     private Review convertDtoToModel(ReviewDto reviewDto) {
         if (reviewDto != null) {
-            logger.info(this.className + "-- convert reviewDto to review");
-            Review review = new Review();
-            logger.info(this.className + "review");
-
+            logger.info(this.className  + "-- converting DTO to Model");
+            Optional<CinematesUser> reviewUser = this.cinematesUserService.findUser(reviewDto.getCinematesUserUsername(), CinematesUserService.SearchMode.USERNAME);
+            if (reviewUser.isPresent()) {
+                Review review = new Review();
+                review.setUser(reviewUser.get());
+                review.setTmdbMovieId(reviewDto.getMovieId());
+                review.setRating(reviewDto.getRating());
+                review.setDescription(reviewDto.getDescription());
+                return review;
+            } else return null;
         } else return null;
-//        Review review = null;
-//        if (reviewDto != null) {
-//            Optional<CinematesUser> user = userRepository.findByUsername(reviewDto.getCinematesUserUsername());
-//            if (user.isPresent()) {
-//                review = new Review();
-//                review.setDescription(reviewDto.getDescription());
-//                review.setRating(reviewDto.getRating());
-//                review.setTmdbMovieId(reviewDto.getMovieId());
-//                review.setUser(user.get());
-//            }
-        }
     }
 
     private ReviewDto convertModelToDto(Review review) {
-        ReviewDto reviewDto = null;
+
         if (review != null) {
+            ReviewDto reviewDto = null;
             reviewDto = new ReviewDto();
             reviewDto.setId(review.getReviewId());
             reviewDto.setMovieId(review.getTmdbMovieId());
             reviewDto.setDescription(review.getDescription());
             reviewDto.setCinematesUserUsername(review.getUser().getUsername());
-        }
-
-        return reviewDto;
+            reviewDto.setRating(review.getRating());
+            return reviewDto;
+        } else return null;
     }
 }

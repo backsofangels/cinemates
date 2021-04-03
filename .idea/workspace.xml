@@ -5,28 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d673610-3bbc-412c-99a6-7c0b875a37da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/salvatore/cinemates/TestCinematesUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/0/009933a7b287240f0062ab926c6222a3ff9fd966" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/7/07ce4228bb3c100263a75d9b9c87d4d42c3ed831" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/7/07ce4228bb3c100263a75d9b9c87d4d42c3ed831" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/1/114f86f4f7f589b4cc88f1195c816b284ef0bfcf" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/1/114f86f4f7f589b4cc88f1195c816b284ef0bfcf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/2/129dc4f049c6336dedf3c2470521d8db776c7447" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/2/129dc4f049c6336dedf3c2470521d8db776c7447" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/8/18315e417f8f74c9a1f7d666b434293a37f34dcb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3c6c5876a72a2cf50be281bdc480b7467bc0d458" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3c6c5876a72a2cf50be281bdc480b7467bc0d458" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/c/4c1586eb5423e7a6372efcaf951a2844a8981e97" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/c/4c1586eb5423e7a6372efcaf951a2844a8981e97" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/9/b94927ad60bed0ddb2105d78d79e5ff36a55b7b9" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/9/b94927ad60bed0ddb2105d78d79e5ff36a55b7b9" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/3/d3970a045329f9e43ed749270e5f7129d663cc9a" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/3/d3970a045329f9e43ed749270e5f7129d663cc9a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/dao/CinematesUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/dao/CinematesUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/model/CinematesUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/model/CinematesUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/services/CinematesUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/services/CinematesUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/services/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/services/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/services/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/services/UserDetailsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/salvatore/cinemates/utils/SaveEntityResultState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/salvatore/cinemates/TestReviewService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application-localmysql.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-localmysql.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
