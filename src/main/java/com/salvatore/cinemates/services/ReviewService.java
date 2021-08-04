@@ -56,9 +56,9 @@ public class ReviewService {
         List<ReviewDto> reviewDtos = new ArrayList<>();
 
         try {
-            CinematesUser user = userRepository.findByUsername(username);
-            if (userOptional.isPresent()) {
-                List<Review> reviews = repository.findReviewByCinematesUser(userOptional.get());
+            CinematesUser user = cinematesUserService.findUser(username, CinematesUserService.SearchMode.USERNAME);
+            if (user != null) {
+                List<Review> reviews = repository.findReviewByCinematesUser(user);
                 for (Review r: reviews) {
                     reviewDtos.add(convertModelToDto(r));
                 }
@@ -99,10 +99,10 @@ public class ReviewService {
     private Review convertDtoToModel(ReviewDto reviewDto) {
         if (reviewDto != null) {
             logger.info(this.className  + "-- converting DTO to Model");
-            Optional<CinematesUser> reviewUser = this.cinematesUserService.findUser(reviewDto.getCinematesUserUsername(), CinematesUserService.SearchMode.USERNAME);
-            if (reviewUser.isPresent()) {
+            CinematesUser reviewUser = this.cinematesUserService.findUser(reviewDto.getCinematesUserUsername(), CinematesUserService.SearchMode.USERNAME);
+            if (reviewUser != null) {
                 Review review = new Review();
-                review.setUser(reviewUser.get());
+                review.setUser(reviewUser);
                 review.setTmdbMovieId(reviewDto.getMovieId());
                 review.setRating(reviewDto.getRating());
                 review.setDescription(reviewDto.getDescription());
